@@ -1,0 +1,14 @@
+[run]
+branch = True
+
+omit=
+    .venv/*
+    *tests/*
+    *__init__.py
+
+[report]
+show_missing = True
+
+fail_under = 90
+
+skip_covered = False
