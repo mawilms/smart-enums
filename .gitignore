@@ -4,7 +4,7 @@
 
 .idea
 .vscode
-
+.tox/
 
 
 # Byte-compiled / optimized / DLL files
