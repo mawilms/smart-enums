@@ -7,7 +7,7 @@ from typing import Any
 
 
 class Ok:
-    content: str
+    content: Any
 
     def __init__(self, content: Any) -> None:
         self.content: Any = content
