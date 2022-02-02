@@ -7,10 +7,8 @@ on:
       - completed
 
 jobs:
-  deploy-packages:
+  deploy:
     runs-on: ubuntu-latest
-
-    # the 2nd condition
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     steps:
