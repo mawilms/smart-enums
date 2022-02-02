@@ -7,7 +7,7 @@ from typing import Any
 
 
 class Ok:
-    content: str
+    content: Any
 
     def __init__(self, content: Any) -> None:
         self.content: Any = content
@@ -64,3 +64,13 @@ class Result:
             return self.Ok.content
 
         return self.Error.content
+
+    def unwrap(self):
+        if hasattr(self, "Ok"):
+            return self.Ok.content
+
+        raise WrongResultException(f"Result contains an error with the content {self.Error.content}")
+
+
+class WrongResultException(Exception):
+    pass

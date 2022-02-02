@@ -61,3 +61,13 @@ class Option:
             return self.Some.content
 
         return None
+
+    def unwrap(self):
+        if hasattr(self, "Some"):
+            return self.Some.content
+
+        raise WrongOptionException(f"Option doesn't contain anything")
+
+
+class WrongOptionException(Exception):
+    pass
