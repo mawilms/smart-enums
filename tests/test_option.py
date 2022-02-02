@@ -1,4 +1,4 @@
-from smart_enums.option import Nothing, Option, Some
+from smart_enums.option import Nothing, Option, Some, WrongOptionException
 import pytest
 
 
@@ -59,3 +59,16 @@ class TestGetContent:
         option = Option(Nothing())
 
         assert option.get_content() is None
+
+
+class TestUnwrap:
+    def test_some_unwrap(self):
+        option = Option(Some("Query successful"))
+
+        assert option.unwrap() == "Query successful"
+
+    def test_nothing_unwrap(self):
+        option = Option(Nothing())
+
+        with pytest.raises(WrongOptionException):
+            option.unwrap()

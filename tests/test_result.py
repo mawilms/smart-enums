@@ -1,4 +1,4 @@
-from smart_enums.result import Result, Ok, Error
+from smart_enums.result import Result, Ok, Error, WrongResultException
 import pytest
 
 
@@ -50,3 +50,16 @@ class TestGetContent:
         result = Result(Error("Query failed"))
 
         assert result.get_content() == "Query failed"
+
+
+class TestUnwrap:
+    def test_ok_unwrap(self):
+        result = Result(Ok("Query successful"))
+
+        assert result.unwrap() == "Query successful"
+
+    def test_error_unwrap(self):
+        result = Result(Error("Query failed"))
+
+        with pytest.raises(WrongResultException):
+            result.unwrap()
