@@ -4,8 +4,7 @@ on:
   workflow_run:
     workflows:
       - Unit tests
-#    branches:
-#      - main
+    branches: [ main, feature/*, bugfix/* ]
     types:
       - completed
 
