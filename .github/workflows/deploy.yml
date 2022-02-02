@@ -2,8 +2,7 @@ name: Deploy
 
 on:
   workflow_run:
-    workflows: ["unit-tests"]
-    branches: [ main, feature/*, bugfix/* ]
+    workflows: [Unit tests]
     types:
       - completed
 
