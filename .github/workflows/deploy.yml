@@ -5,8 +5,8 @@ on:
   workflow_run:
     workflows:
       - "unit-tests"
-    branches:
-      - main
+#    branches:
+#      - main
     types:
       - completed
 
