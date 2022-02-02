@@ -4,3 +4,5 @@ pytest
 pytest-cov
 twine
 build
+sphinx
+furo
