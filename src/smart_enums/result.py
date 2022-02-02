@@ -33,8 +33,10 @@ class Result:
     def is_ok(self) -> bool:
         """Returns true if the `Result` contains the `Ok` enum.
 
-        Returns:
-            bool: Indicates if the result was successful.
+        Returns
+        -------
+        bool
+            Indicates if the result was successful.
         """
         if hasattr(self, "Ok"):
             return True
@@ -44,8 +46,10 @@ class Result:
     def is_err(self) -> bool:
         """Returns true if the `Result` contains the `Error` enum.
 
-        Returns:
-            bool: Indicates if the result was a failure.
+        Returns
+        -------
+        bool
+            Indicates if the result was a failure.
         """
         if hasattr(self, "Error"):
             return True
@@ -57,15 +61,29 @@ class Result:
 
         This is useful for further result handling.
 
-        Returns:
-            Any: Returns the content of the enums.
+        Returns
+        -------
+        Any
+            Returns the content of the enums.
         """
         if hasattr(self, "Ok"):
             return self.Ok.content
 
         return self.Error.content
 
-    def unwrap(self):
+    def unwrap(self) -> Any:
+        """
+
+        Returns
+        -------
+        Any
+            Content of the `Ok` object.
+
+        Raises
+        ------
+        WrongResultException
+            Raises an exception if the `Result` contains an `Error` object.
+        """
         if hasattr(self, "Ok"):
             return self.Ok.content
 
