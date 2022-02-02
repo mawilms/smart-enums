@@ -1,10 +1,9 @@
 name: Deploy
 
 on:
-  # the 1st condition
   workflow_run:
     workflows:
-      - "unit-tests"
+      - Unit tests
 #    branches:
 #      - main
     types:
